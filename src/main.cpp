@@ -4,6 +4,7 @@
 // #include "game.h"
 #include "../shader.h"
 #include "sprite_renderer.h"
+#include "unit_cube.h"
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 
@@ -28,6 +29,10 @@ int main() {
 
     // Breakout.Init();
     SpriteRenderer::SetProjection(SCREEN_WIDTH, SCREEN_HEIGHT);
+    UnitCube test_cube_1(glm::vec2(100.0f, 200.0f), glm::vec3(1.0f, 0.5f, 1.0f));
+    UnitCube test_cube_2(glm::vec2(645.0f, 222.0f), glm::vec3(1.0f, 0.5f, 0.0f));
+    UnitCube test_cube_3(glm::vec2(65.6f, 400.0f), glm::vec3(1.0f, 1.0f, 0.0f));
+    UnitCube test_cube_4(glm::vec2(76.0f, 510.0f), glm::vec3(0.3f, 0.5f, 1.0f));
 
     float deltaTime = 0;
     float lastFrame = 0;
@@ -45,7 +50,11 @@ int main() {
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         // Breakout.Render();
-        SpriteRenderer::DrawSprite(glm::vec2(100.0f, 200.0f), glm::vec2(10.0f, 10.0f), glm::vec3(1.0f, 0.5f, 1.0f));
+        test_cube_1.Draw();
+        test_cube_2.Draw();
+        test_cube_3.Draw();
+        test_cube_4.Draw();
+        
         glfwSwapBuffers(window);
     }
 }
